@@ -1,40 +1,35 @@
-
-let dieren = ["Aap", "Vogel", "Orka"];
-let kleuren = ["geel", "groen", "bruin", "zwart"];
-let dierentuindieren = [];
-
 class Park {
     constructor(parknaam) {
         this.parknaam = parknaam;
+        this.dierentuindieren = [];
     }
-
+    
     getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+    }    
     
     fillZoo(aantaldieren) {  
-             
-        
+        this.dierentuindieren = [];
+        this.dieren = ["Aap", "Vogel", "Orka"];
+        this.kleuren = ["geel", "groen", "bruin", "zwart"];
         for (let i=0; i < aantaldieren; i++) {
     
-        let randomkleuren = this.getRandomInt(0, kleuren.length -1);
+        let randomkleuren = this.getRandomInt(0, this.kleuren.length -1);
             
-        let randomdieren = this.getRandomInt(0, dieren.length - 1);        
+        let randomdieren = this.getRandomInt(0, this.dieren.length - 1);        
     
          if (randomdieren == 0) {
-             dierentuindieren.push(new Vogel(kleuren[randomkleuren], 100));         
+             this.dierentuindieren.push(new Vogel(this.kleuren[randomkleuren], 100));         
          }
          else if (randomdieren == 1) {
-            dierentuindieren.push(new Aap(kleuren[randomkleuren], "ja"));
+            this.dierentuindieren.push(new Aap(this.kleuren[randomkleuren], "ja"));
          }
          else if (randomdieren == 2) {
-            dierentuindieren.push(new Orka(kleuren[randomkleuren], 50));  
+            this.dierentuindieren.push(new Orka(this.kleuren[randomkleuren], 50));  
          }
         }
-    }
-    
+    }    
 }
-
 
 class Dier {
     constructor(kleur) {
@@ -103,14 +98,9 @@ class Bezoeker extends Mens {
     }
 }
 
-// function countAnimals() {
-//     for (let i = 0; i < dierentuindieren.length; i++) {
-//         if ()
-//     }
-// }
 
 let parkivo = new Park("Ivo's Paradise");
 parkivo.fillZoo(3);
-console.log(dierentuindieren);
+console.log(parkivo.kleuren);
 
 
