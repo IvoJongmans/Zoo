@@ -1,3 +1,13 @@
+let dieren = ["Aap", "Vogel"];
+let dierentuindieren = [];
+let randomgetal1 = getRandomInt();
+let randomgetal2 = getRandomInt();
+let apendiv = document.getElementById("apen");
+let apencount = 0;
+let vogelsdiv = document.getElementById("vogels");
+let vogelcount = 0;
+
+
 class Dier {
     constructor(kleur) {
         this.kleur = kleur;
@@ -57,30 +67,45 @@ class Bezoeker extends Mens {
 }
 
 
-const dier = new Dier("paars");
-const ivo = new Mens("Ivo Jongmans");
-const aap1 = new Aap("Bruin", "Ja, ik heb een staart!");
-const vogel1 = new Vogel("Geel", 100);
-const verzorger1 = new Verzorger("Jeroen de Reus", "Vogels");
-const bezoeker1 = new Bezoeker("Micheal Schmidt Crans", 45552760);
-
-console.log(ivo.naam);
-ivo.loop();
-
-console.log(aap1.kleur);
-console.log(aap1.heeftstaart);
-aap1.klim();
-
-console.log(vogel1.kleur);
-console.log(vogel1.vliegsnelheid);
-vogel1.vlieg();
-
-console.log(verzorger1.naam);
-console.log(verzorger1.diersoort);
-verzorger1.voer();
-
-console.log(bezoeker1.naam);
-console.log(bezoeker1.ticketid);
-bezoeker1.kijk();
+function getRandomInt() {
+    min = 0;
+    max = dieren.length -1;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 
+
+function fillZoo(aantaldieren) {   
+    for (i=0; i < aantaldieren; i++) {
+    
+     if (getRandomInt() == 0) {
+         dierentuindieren.push(new Vogel("geel", 100));
+     }
+     else {
+        dierentuindieren.push(new Aap("bruin", "ja"));
+     }
+    }
+}
+
+fillZoo(10);
+
+function countAnimals() {    
+    for (i=0; i < dierentuindieren.length; i++) {
+        if (dierentuindieren[i].kleur == "bruin" ) {
+            apencount += 1;
+            apendiv.innerHTML = apencount;
+        }
+        else {
+            vogelcount += 1;
+            vogelsdiv.innerHTML = vogelcount;
+        }
+    }
+}
+
+
+
+console.log(dieren[randomgetal1]);
+console.log(randomgetal2);
+console.log(dierentuindieren);
+console.log(vogelcount);
+console.log(apencount);
