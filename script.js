@@ -1,11 +1,39 @@
-let dieren = ["Aap", "Vogel"];
+
+let dieren = ["Aap", "Vogel", "Orka"];
+let kleuren = ["geel", "groen", "bruin", "zwart"];
 let dierentuindieren = [];
-let randomgetal1 = getRandomInt();
-let randomgetal2 = getRandomInt();
-let apendiv = document.getElementById("apen");
-let apencount = 0;
-let vogelsdiv = document.getElementById("vogels");
-let vogelcount = 0;
+
+class Park {
+    constructor(parknaam) {
+        this.parknaam = parknaam;
+    }
+
+    getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
+    fillZoo(aantaldieren) {  
+             
+        
+        for (let i=0; i < aantaldieren; i++) {
+    
+        let randomkleuren = this.getRandomInt(0, kleuren.length -1);
+            
+        let randomdieren = this.getRandomInt(0, dieren.length - 1);        
+    
+         if (randomdieren == 0) {
+             dierentuindieren.push(new Vogel(kleuren[randomkleuren], 100));         
+         }
+         else if (randomdieren == 1) {
+            dierentuindieren.push(new Aap(kleuren[randomkleuren], "ja"));
+         }
+         else if (randomdieren == 2) {
+            dierentuindieren.push(new Orka(kleuren[randomkleuren], 50));  
+         }
+        }
+    }
+    
+}
 
 
 class Dier {
@@ -45,6 +73,15 @@ class Vogel extends Dier {
         console.log("Ik zit op een tak!");
     }
 }
+class Orka extends Dier {
+    constructor(kleur, zwemsnelheid) {
+        super(kleur);
+        this.zwemsnelheid = zwemsnelheid;
+    }
+    vlieg() {
+        console.log("Ik zit op een tak!");
+    }
+}
 
 class Verzorger extends Mens {
     constructor(naam, diersoort) {
@@ -66,46 +103,14 @@ class Bezoeker extends Mens {
     }
 }
 
+// function countAnimals() {
+//     for (let i = 0; i < dierentuindieren.length; i++) {
+//         if ()
+//     }
+// }
 
-function getRandomInt() {
-    min = 0;
-    max = dieren.length -1;
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-
-
-function fillZoo(aantaldieren) {   
-    for (i=0; i < aantaldieren; i++) {
-    
-     if (getRandomInt() == 0) {
-         dierentuindieren.push(new Vogel("geel", 100));
-     }
-     else {
-        dierentuindieren.push(new Aap("bruin", "ja"));
-     }
-    }
-}
-
-fillZoo(10);
-
-function countAnimals() {    
-    for (i=0; i < dierentuindieren.length; i++) {
-        if (dierentuindieren[i].kleur == "bruin" ) {
-            apencount += 1;
-            apendiv.innerHTML = apencount;
-        }
-        else {
-            vogelcount += 1;
-            vogelsdiv.innerHTML = vogelcount;
-        }
-    }
-}
-
-
-
-console.log(dieren[randomgetal1]);
-console.log(randomgetal2);
+let parkivo = new Park("Ivo's Paradise");
+parkivo.fillZoo(3);
 console.log(dierentuindieren);
-console.log(vogelcount);
-console.log(apencount);
+
+
