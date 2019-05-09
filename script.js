@@ -59,7 +59,7 @@ class Park {
         let Aapcount = 0;
         let Orkacount = 0;
         let Vogelcount = 0;
-        let apendiv = document.getElementById("apendiv");
+        let apendiv = document.getElementById("aapinfo");
         this.dierentuindieren.forEach(function(element, index){
          if (element.constructor.name === 'Aap'){
              Aapcount += 1;

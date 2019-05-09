@@ -33,10 +33,33 @@
    display: none;
    z-index: 1;
 }
-
 #zoomap {
-   background-color: green;
-   height: 500px;
-   width: 50%;
+   width: 500px;
+   height: 300px;
+   position: relative;
+   background: url("plainmap.png") center;
+   background-size: cover;
    margin: auto;
+   
+}
+
+#aapmap {
+   height: 10px;
+   width: 10px;
+   background-color: black;
+   position: absolute;
+   margin-left: 75px;
+   margin-top: 225px;
+}
+
+#aapinfo {
+   height: 100px;
+   width: 100px;
+   background-color: white;
+   border: 1px solid black;
+   position: absolute;
+   margin-left: 75px;
+   margin-top: 225px; 
+   display: none;
+   
 }
