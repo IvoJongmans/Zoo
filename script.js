@@ -161,7 +161,7 @@ class Bezoeker extends Mens {
 //         initial += rotate;
 //     }
 // }
-let parkivo = new Park("apenheul");
+let parkivo = new Park("sanne's zoo");
 parkivo.createParkArch();
 parkivo.doorsOpenClosed();
 parkivo.fillZoo(10);
