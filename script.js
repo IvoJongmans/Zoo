@@ -2,6 +2,7 @@ class Park {
     constructor(parknaam) {
         this.parknaam = parknaam;
         this.dierentuindieren = [];
+        this.openofdicht = helperFunctions.getRandomInt(0,1);
     }
     
     fillZoo(aantaldieren) {  
@@ -24,7 +25,35 @@ class Park {
             this.dierentuindieren.push(new Orka(this.kleuren[randomkleuren], 50));  
          }
         }
-    }    
+        console.log(this.dierentuindieren);
+    }
+
+    createParkArch() {
+        let parknaam = parkivo.parknaam;
+        let lengthparknaam = parknaam.length - 1;
+        let rotate = 180 / lengthparknaam;
+        let initial = 0;
+        let initialrotate = -90;
+        let headerDiv = document.getElementById("zooHeader");   
+        for (let i=0; i < parknaam.length; i++) {
+            headerDiv.innerHTML += `<div id="${i}" style=> ${parknaam[i]} </div>`;
+            document.getElementById(i).style.transform = "rotate(" + (initialrotate  + initial) + "deg)";
+            initial += rotate;
+        }
+    }
+    
+    doorsOpenClosed() {
+        if (this.openofdicht == 0) {
+            document.getElementById("gateopened").style.display = "none";
+            document.getElementById("gateclosed").style.display = "block";
+            console.log("closed");
+        }
+        else {
+            document.getElementById("gateclosed").style.display = "none";
+            document.getElementById("gateopened").style.display = "block"; 
+            console.log("open");
+        }
+    }
 
     countAnimals(){
         let Aapcount = 0;
@@ -118,21 +147,22 @@ class Bezoeker extends Mens {
 }
 
 
-let parkivo = new Park("Dierentuin Ivo");
-let parknaam = parkivo.parknaam;
-let lengthparknaam = parknaam.length - 1;
-let rotate = 180 / lengthparknaam;
-let initial = 0;
-let initialrotate = -90;
-let headerDiv = document.getElementById("zooHeader");
-function createParkArch() {
-    for (let i=0; i < parknaam.length; i++) {
-        headerDiv.innerHTML += `<div id="${i}" style=> ${parknaam[i]} </div>`;
-        document.getElementById(i).style.transform = "rotate(" + (initialrotate  + initial) + "deg)";
-        initial += rotate;
-    }
-}
 
-createParkArch();
-console.log(lengthparknaam);
-console.log(rotate);
+// let parknaam = parkivo.parknaam;
+// let lengthparknaam = parknaam.length - 1;
+// let rotate = 180 / lengthparknaam;
+// let initial = 0;
+// let initialrotate = -90;
+// let headerDiv = document.getElementById("zooHeader");
+// function createParkArch() {
+//     for (let i=0; i < parknaam.length; i++) {
+//         headerDiv.innerHTML += `<div id="${i}" style=> ${parknaam[i]} </div>`;
+//         document.getElementById(i).style.transform = "rotate(" + (initialrotate  + initial) + "deg)";
+//         initial += rotate;
+//     }
+// }
+let parkivo = new Park("Jongmans");
+parkivo.createParkArch();
+parkivo.doorsOpenClosed();
+parkivo.fillZoo(10);
+parkivo.countAnimals();

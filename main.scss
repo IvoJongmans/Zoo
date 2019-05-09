@@ -21,10 +21,14 @@
    position: absolute;
    left: 50%;
    top: 50%;
+   z-index: 1;
+   
 }
 
 #gateopened {
    position: absolute;
    left: 50%;
    top: 50%;
+   display: none;
+   z-index: 1;
 }
