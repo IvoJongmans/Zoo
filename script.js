@@ -4,19 +4,15 @@ class Park {
         this.dierentuindieren = [];
     }
     
-    getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }    
-    
     fillZoo(aantaldieren) {  
         this.dierentuindieren = [];
         this.dieren = ["Aap", "Vogel", "Orka"];
         this.kleuren = ["geel", "groen", "bruin", "zwart"];
         for (let i=0; i < aantaldieren; i++) {
     
-        let randomkleuren = this.getRandomInt(0, this.kleuren.length -1);
+        let randomkleuren = helperFunctions.getRandomInt(0, this.kleuren.length -1);
             
-        let randomdieren = this.getRandomInt(0, this.dieren.length - 1);        
+        let randomdieren = helperFunctions.getRandomInt(0, this.dieren.length - 1);        
     
          if (randomdieren == 0) {
              this.dierentuindieren.push(new Vogel(this.kleuren[randomkleuren], 100));         
@@ -29,6 +25,7 @@ class Park {
          }
         }
     }    
+
     countAnimals(){
         let Aapcount = 0;
         let Orkacount = 0;
@@ -47,6 +44,7 @@ class Park {
              Vogelcount += 1;
              vogeldiv.innerHTML = "Vogels: " + Vogelcount;
             }
+            apendiv.innerHTML = "Apen: " + Aapcount;
         });
     }
 }
@@ -61,13 +59,17 @@ class Dier {
 }
 
 class Mens {
-    constructor(naam) {
-        this.naam = naam;
+    constructor() {
+        this.naam = helperFunctions.getRandomHumanName();
     }
     loop() {
         console.log("Ik zit op een bankje!");
     }
 }
+
+// function createName() {
+//     return "ivo";
+// }
 
 class Aap extends Dier {
     constructor(kleur, heeftstaart) {
@@ -120,7 +122,7 @@ class Bezoeker extends Mens {
 
 
 let parkivo = new Park("Ivo's Paradise");
-parkivo.fillZoo(1000000);
+let bezoekerivo = new Bezoeker("", 2324);
+console.log(bezoekerivo);
+parkivo.fillZoo(10);
 parkivo.countAnimals();
-
-
