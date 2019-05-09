@@ -16,6 +16,7 @@
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
   font-size: 30px;
+  font-family: 'Cinzel Decorative', cursive;
 }
 
 #gateclosed {
@@ -31,5 +32,12 @@
   top: 50%;
   display: none;
   z-index: 1;
+}
+
+#zoomap {
+  background-color: green;
+  height: 500px;
+  width: 50%;
+  margin: auto;
 }
 /*# sourceMappingURL=main.css.map */
