@@ -29,6 +29,16 @@ class Park {
          }
         }
     }    
+    countAnimals(){
+        let Aapcount = 0;
+        console.log(parkivo.dierentuindieren)
+        this.dierentuindieren.forEach(function(element, index){
+         if (element.constructor.name === 'Aap'){
+             Aapcount += 1;
+            }
+        });
+        console.log(Aapcount);
+    }
 }
 
 class Dier {
@@ -100,7 +110,6 @@ class Bezoeker extends Mens {
 
 
 let parkivo = new Park("Ivo's Paradise");
-parkivo.fillZoo(3);
-console.log(parkivo.kleuren);
-
+parkivo.fillZoo(100);
+parkivo.countAnimals();
 
