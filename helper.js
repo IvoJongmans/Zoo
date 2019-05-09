@@ -5,7 +5,11 @@ helperFunctions = {
     getRandomHumanName() {
         let names = ["Ivo", "Jeroen", "Micheal"];
         let nameint = helperFunctions.getRandomInt(0, names.length - 1);
-        // console.log(nameint);
+        return names[nameint];
+    },
+    getRandomAnimalName() {
+        let names = ["Floris", "Mike", "Diem"];
+        let nameint = helperFunctions.getRandomInt(0, names.length - 1);
         return names[nameint];
     }
 } 

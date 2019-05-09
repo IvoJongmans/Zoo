@@ -52,6 +52,7 @@ class Park {
 class Dier {
     constructor(kleur) {
         this.kleur = kleur;
+        this.naam = helperFunctions.getRandomAnimalName();
     }
     eat() {
         console.log("Ik ben aan het eten!");
@@ -66,10 +67,6 @@ class Mens {
         console.log("Ik zit op een bankje!");
     }
 }
-
-// function createName() {
-//     return "ivo";
-// }
 
 class Aap extends Dier {
     constructor(kleur, heeftstaart) {
@@ -120,9 +117,11 @@ class Bezoeker extends Mens {
     }
 }
 
-
 let parkivo = new Park("Ivo's Paradise");
 let bezoekerivo = new Bezoeker("", 2324);
 console.log(bezoekerivo);
 parkivo.fillZoo(10);
 parkivo.countAnimals();
+console.log(parkivo.dierentuindieren);
+h1 = document.getElementById("zooH1");
+h1.innerHTML = parkivo.parknaam;
