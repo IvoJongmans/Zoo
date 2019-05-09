@@ -31,13 +31,23 @@ class Park {
     }    
     countAnimals(){
         let Aapcount = 0;
-        console.log(parkivo.dierentuindieren)
+        let Orkacount = 0;
+        let Vogelcount = 0;
+        let apendiv = document.getElementById("apendiv");
         this.dierentuindieren.forEach(function(element, index){
          if (element.constructor.name === 'Aap'){
              Aapcount += 1;
+             apendiv.innerHTML = "Apen: " + Aapcount;
+            }
+         else if (element.constructor.name === 'Orka'){
+             Orkacount += 1;
+             orkadiv.innerHTML = "Orka's: " + Orkacount;
+            }
+         else if (element.constructor.name === 'Vogel'){
+             Vogelcount += 1;
+             vogeldiv.innerHTML = "Vogels: " + Vogelcount;
             }
         });
-        console.log(Aapcount);
     }
 }
 
@@ -110,6 +120,7 @@ class Bezoeker extends Mens {
 
 
 let parkivo = new Park("Ivo's Paradise");
-parkivo.fillZoo(100);
+parkivo.fillZoo(1000000);
 parkivo.countAnimals();
+
 
