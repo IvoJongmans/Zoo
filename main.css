@@ -1,3 +1,20 @@
 #zooHeader {
-   color: red; 
+  position: relative;
+  width: 50%;
+  height: 300px;
+  margin: auto;
 }
+
+#zooHeader div {
+  display: inline-block;
+  width: 50px;
+  vertical-align: text-top;
+  text-align: center;
+  height: 225px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  font-size: 30px;
+}
+/*# sourceMappingURL=main.css.map */

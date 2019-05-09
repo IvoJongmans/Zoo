@@ -117,11 +117,22 @@ class Bezoeker extends Mens {
     }
 }
 
-let parkivo = new Park("Ivo's Paradise");
-let bezoekerivo = new Bezoeker("", 2324);
-console.log(bezoekerivo);
-parkivo.fillZoo(10);
-parkivo.countAnimals();
-console.log(parkivo.dierentuindieren);
-h1 = document.getElementById("zooH1");
-h1.innerHTML = parkivo.parknaam;
+
+let parkivo = new Park("Dierentuin Ivo");
+let parknaam = parkivo.parknaam;
+let lengthparknaam = parknaam.length - 1;
+let rotate = 180 / lengthparknaam;
+let initial = 0;
+let initialrotate = -90;
+let headerDiv = document.getElementById("zooHeader");
+function createParkArch() {
+    for (let i=0; i < parknaam.length; i++) {
+        headerDiv.innerHTML += `<div id="${i}" style=> ${parknaam[i]} </div>`;
+        document.getElementById(i).style.transform = "rotate(" + (initialrotate  + initial) + "deg)";
+        initial += rotate;
+    }
+}
+
+createParkArch();
+console.log(lengthparknaam);
+console.log(rotate);
