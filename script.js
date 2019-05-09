@@ -1,3 +1,5 @@
+
+
 class Park {
     constructor(parknaam) {
         this.parknaam = parknaam;
@@ -9,14 +11,14 @@ class Park {
         this.dierentuindieren = [];
         this.dieren = ["Aap", "Vogel", "Orka"];
         this.kleuren = ["geel", "groen", "bruin", "zwart"];
+        this.aapinfo = document.getElementById("aapinfo");
         for (let i=0; i < aantaldieren; i++) {
-    
         let randomkleuren = helperFunctions.getRandomInt(0, this.kleuren.length -1);
             
         let randomdieren = helperFunctions.getRandomInt(0, this.dieren.length - 1);        
     
          if (randomdieren == 0) {
-             this.dierentuindieren.push(new Vogel(this.kleuren[randomkleuren], 100));         
+             this.dierentuindieren.push(new Vogel(this.kleuren[randomkleuren], 100)); 
          }
          else if (randomdieren == 1) {
             this.dierentuindieren.push(new Aap(this.kleuren[randomkleuren], "ja"));
@@ -63,7 +65,7 @@ class Park {
         this.dierentuindieren.forEach(function(element, index){
          if (element.constructor.name === 'Aap'){
              Aapcount += 1;
-             apendiv.innerHTML = "Apen: " + Aapcount;
+             apendiv.innerHTML += "Apen: " + Aapcount;
             }
          else if (element.constructor.name === 'Orka'){
              Orkacount += 1;
