@@ -17,4 +17,16 @@
           transform-origin: bottom;
   font-size: 30px;
 }
+
+#gateclosed {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+#gateopened {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
 /*# sourceMappingURL=main.css.map */
