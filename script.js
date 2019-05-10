@@ -4,7 +4,8 @@ class Park {
     constructor(parknaam) {
         this.parknaam = parknaam;
         this.dierentuindieren = [];
-        this.openofdicht = helperFunctions.getRandomInt(0,1);
+        this.openofdicht = helperFunctions.getRandomInt(0,1);     
+        this.tickets = [];
     }
     
     fillZoo(aantaldieren) {  
@@ -28,6 +29,23 @@ class Park {
          }
         }
         console.log(this.dierentuindieren);
+    }
+
+    sellTicket() {
+        let ticketnr = "#" + helperFunctions.getRandomInt(0,9) + helperFunctions.getRandomInt(0,9) + helperFunctions.getRandomInt(0,9) + helperFunctions.getRandomInt(0,9);
+        let naamticket = document.getElementById("ticketname").value;
+        this.tickets.push(new Klant(naamticket, ticketnr));
+        console.log(parkivo.tickets);
+    }
+
+    checkTicket() {
+        let displaynaam = document.getElementById("displayticketnr");
+        let nrticket = document.getElementById("checkticketid").value;
+        for (let i = 0; i < this.tickets.length; i++) {
+            if (nrticket == this.tickets[i].ticketid) {
+                displaynaam.innerHTML = this.tickets[i].naam;
+            }
+        }
     }
 
     createParkArch() {
@@ -92,7 +110,7 @@ class Dier {
 
 class Mens {
     constructor() {
-        this.naam = helperFunctions.getRandomHumanName();
+        this.naam = document.getElementById("ticketname").value;
     }
     loop() {
         console.log("Ik zit op een bankje!");
@@ -138,7 +156,7 @@ class Verzorger extends Mens {
     }
 }
 
-class Bezoeker extends Mens {
+class Klant extends Mens {
     constructor(naam, ticketid) {
         super(naam);
         this.ticketid = ticketid;
@@ -148,23 +166,9 @@ class Bezoeker extends Mens {
     }
 }
 
-
-
-// let parknaam = parkivo.parknaam;
-// let lengthparknaam = parknaam.length - 1;
-// let rotate = 180 / lengthparknaam;
-// let initial = 0;
-// let initialrotate = -90;
-// let headerDiv = document.getElementById("zooHeader");
-// function createParkArch() {
-//     for (let i=0; i < parknaam.length; i++) {
-//         headerDiv.innerHTML += `<div id="${i}" style=> ${parknaam[i]} </div>`;
-//         document.getElementById(i).style.transform = "rotate(" + (initialrotate  + initial) + "deg)";
-//         initial += rotate;
-//     }
-// }
 let parkivo = new Park("sanne's zoo");
 parkivo.createParkArch();
 parkivo.doorsOpenClosed();
 parkivo.fillZoo(10);
 parkivo.countAnimals();
+console.log(parkivo.soldtickets);
