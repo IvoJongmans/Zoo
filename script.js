@@ -1,5 +1,3 @@
-
-
 class Park {
     constructor(parknaam) {
         this.parknaam = parknaam;
@@ -28,14 +26,12 @@ class Park {
             this.dierentuindieren.push(new Orka(this.kleuren[randomkleuren], 50));  
          }
         }
-        console.log(this.dierentuindieren);
     }
 
     sellTicket() {
         let ticketnr = "#" + helperFunctions.getRandomInt(0,9) + helperFunctions.getRandomInt(0,9) + helperFunctions.getRandomInt(0,9) + helperFunctions.getRandomInt(0,9);
         let naamticket = document.getElementById("ticketname").value;
         this.tickets.push(new Klant(naamticket, ticketnr));
-        console.log(parkivo.tickets);
     }
 
     checkTicket() {
@@ -43,7 +39,7 @@ class Park {
         let nrticket = document.getElementById("checkticketid").value;
         for (let i = 0; i < this.tickets.length; i++) {
             if (nrticket == this.tickets[i].ticketid) {
-                displaynaam.innerHTML = this.tickets[i].naam;
+                displaynaam.innerHTML = 'Dit ticket is van: ' + this.tickets[i].naam;
             }
         }
     }
@@ -66,12 +62,10 @@ class Park {
         if (this.openofdicht == 0) {
             document.getElementById("gateopened").style.display = "none";
             document.getElementById("gateclosed").style.display = "block";
-            console.log("closed");
         }
         else {
             document.getElementById("gateclosed").style.display = "none";
-            document.getElementById("gateopened").style.display = "block"; 
-            console.log("open");
+            document.getElementById("gateopened").style.display = "block";             
         }
     }
 
@@ -171,4 +165,8 @@ parkivo.createParkArch();
 parkivo.doorsOpenClosed();
 parkivo.fillZoo(10);
 parkivo.countAnimals();
-console.log(parkivo.soldtickets);
+
+var kaarten = parkivo.tickets;
+console.log(kaarten);
+window.localStorage.setItem('soldtickets', JSON.stringify(kaarten));
+JSON.parse(window.localStorage.getItem('soldtickets'));

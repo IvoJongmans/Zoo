@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="main.css">
     <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
     <script type="text/javascript" src="helper.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function(){
             
@@ -21,17 +23,31 @@
                 <img id="gateopened" src="gateopen.png">
             </div>
     
-    <input type="text" id="ticketname" placeholder="Sanne de Ruiter">
-    <button type="button" onclick="parkivo.sellTicket()">Koop ticket!</button><br/><br/>
-    <input type="text" id="checkticketid" placeholder="#1234">
-    <button type="button" onclick="parkivo.checkTicket()">Check ticket!</button><br>
-    <div id="displayticketnr">
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 text-center">
+                <input type="text" id="ticketname" placeholder="Sanne de Ruiter">
+                <button type="button"  class="btn btn-info" onclick="parkivo.sellTicket()">Koop ticket!</button>
+        </div>
+        <div class="col-sm-3"></div>
     </div>
-
+</div>
+<br/>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 text-center">
+                <input type="text" id="checkticketid" placeholder="#1234">
+                <button type="button" class="btn btn-info " onclick="parkivo.checkTicket()">Check ticket!</button><br>
+                <div id="displayticketnr">
+            
+                </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
     
-
-
     <script type="text/javascript" src="script.js"></script>    
 </body>
 </html>
