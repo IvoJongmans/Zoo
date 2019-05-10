@@ -163,10 +163,12 @@ class Klant extends Mens {
 let parkivo = new Park("sanne's zoo");
 parkivo.createParkArch();
 parkivo.doorsOpenClosed();
-parkivo.fillZoo(10);
 parkivo.countAnimals();
 
-var kaarten = parkivo.tickets;
-console.log(kaarten);
-window.localStorage.setItem('soldtickets', JSON.stringify(kaarten));
-JSON.parse(window.localStorage.getItem('soldtickets'));
+// var kaarten = parkivo.tickets;
+// console.log(kaarten);
+// localStorage.setItem('soldtickets', JSON.stringify(kaarten));
+// JSON.parse(window.localStorage.getItem('soldtickets'));
+// var getkaartenstring = localStorage.getItem("soldtickets");
+// var getkaarten = JSON.parse(getkaartenstring);
+// console.log(getkaarten);

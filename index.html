@@ -17,6 +17,11 @@
             $("#aapmap").mouseout(function(){
                 $("#aapinfo").css("display", "none");
             })
+            parkivo.fillZoo(10);
+            console.log(parkivo.dierentuindieren);
+            var getkaartenstring = localStorage.getItem("soldtickets");
+            var getkaarten = JSON.parse(getkaartenstring);
+            console.log(getkaarten);
         });
     </script>
 </head>

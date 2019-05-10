@@ -13,7 +13,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function(){
-            
+            var kaarten = parkivo.tickets;
+            console.log(kaarten);
+            localStorage.setItem('soldtickets', JSON.stringify(kaarten));
+            JSON.parse(window.localStorage.getItem('soldtickets'));
         });
     </script>
 </head>
